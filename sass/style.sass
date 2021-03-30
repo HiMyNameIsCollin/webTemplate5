@@ -1,0 +1,386 @@
+$grey: #333
+$black: #040404
+$white: #F7F7F7
+$purple: #562c2cff
+$orange: #f2542dff
+$wheat: #f5dfbbff
+$lightBlue: #0e9594ff
+$blue: #127475ff
+
+@mixin container
+	padding: 2rem 1rem
+	@media only screen and (min-width: 480px)
+	@media only screen and (min-width: 768px)
+		padding: 2rem 4rem
+	@media only screen and (min-width: 1024px)
+		padding: 4rem
+	@media only screen and (min-width: 1200px)
+		padding: 6rem
+		max-width: 1600px
+		margin: auto
+
+@mixin centerChildren
+	align-items: center
+	display: flex
+	justify-content: center
+	flex-direction: column
+
+@mixin center
+	margin: auto
+
+@mixin right
+	margin-left: auto
+
+@mixin left 
+	margin-right: auto
+
+@mixin top
+	margin-bottom: auto
+
+@mixin bottom
+	margin-top: auto
+
+@mixin icon
+	display: block
+	min-height: 16px
+	position: relative
+	overflow: hidden
+	min-width: 16px
+	z-index: 1
+	&::before
+		background-size: contain
+		background-repeat: no-repeat
+		background-position: center center
+		content: ''
+		left: 0
+		height: 100%
+		position: absolute
+		top: 0
+		width: 100%
+		z-index: -1
+
+@mixin overlay
+	position: relative
+	overflow: hidden
+	z-index: 1
+	&::before
+		content: ''
+		left: 0
+		height: 100%
+		position: absolute
+		opacity: 0.8
+		top: 0
+		width: 100%
+		z-index: -1
+
+@mixin darkOverlay
+	@include overlay
+	&::before
+		background: $black
+
+@mixin lightOverlay
+	@include overlay
+	&::before
+		background: $white
+
+@mixin greyOverlay
+	@include overlay
+	&::before
+		background: $grey
+
+@mixin wheatOverlay
+	@include overlay
+	&::before
+		background: $wheat
+
+@mixin purpleOverlay
+	@include overlay
+	&::before
+		background: $purple
+
+@mixin orangeOverlay
+	@include overlay
+	&::before
+		background: $orange
+
+@mixin lightBlueOverlay
+	@include overlay
+	&::before
+		background: $lightBlue
+
+@mixin blueOverlay
+	@include overlay
+	&::before
+		background: $blue
+
+@mixin bottomShadow
+	box-shadow: 0px 5px 5px 5px $black
+
+@mixin topShadow
+	box-shadow: 0px 5px 2.5px 2.5px $black
+
+*
+	box-sizing: border-box
+	margin: 0
+	padding: 0
+	font-family: 'Mukta', sans-serif
+	font-family: 'Open Sans', sans-serif
+	font-family: 'Nunito', sans-serif
+
+a
+	color: inherit
+	text-decoration: none
+
+ul
+	list-style: none 
+
+body
+	background: $wheat
+
+.header
+	@include container
+	@include topShadow
+	background: $wheat
+	color: $grey
+	display: grid
+	grid-template-rows: auto auto auto
+	grid-gap: 1rem
+	margin: auto
+	text-align: center
+	&__logo, &__info1, &__info2
+		@include bottom
+	&__logo
+		grid-row: 1/2
+		i
+			color: $lightBlue
+			font-size: 5rem
+		p
+			font-weight: 700
+			&:nth-of-type(1)
+				color: $black
+				font-size: 3rem
+	&__info1, &__info2
+		grid-row: 2/3
+		i
+			margin-right: 1rem
+		span
+			color: $orange
+			font-weight: 700
+	&__info2
+		grid-row: 3/4
+	@media only screen and (min-width: 480px)
+		grid-template-rows: auto auto
+		grid-template-columns: 1fr 1fr
+		&__logo
+			grid-column: 2/3
+			grid-row: 1/3
+		&__info1
+			grid-column: 1/2
+			grid-row: 1/2
+			text-align: start		
+		&__info2
+			grid-column: 1/2
+			grid-row: 2/3
+			text-align: start		
+	@media only screen and (min-width: 768px)
+		grid-template-rows: 1fr
+		grid-template-columns: 1fr 1fr 1fr
+		&__logo, &__info1, &__info2
+			grid-row: 1/2 
+		&__logo
+			grid-column: 2/3
+			text-align: center
+		&__info1
+			margin-left: auto
+			grid-column: 1/2
+		&__info2
+			margin-right: auto
+			grid-column: 3/4
+	@media only screen and (min-width: 1600px)
+		border-left: 2px solid $grey
+		border-right: 2px solid $grey
+
+.nav
+	@include lightOverlay
+	@include bottomShadow
+	background: $wheat
+	border-top: solid $grey 2px
+	border-bottom: solid $grey 2px
+	z-index: 2
+	&::before
+		opacity: 0.1
+	p
+		display: flex
+		align-items: center
+		text-align: center
+		font-size: 2rem
+		font-weight: 700
+		i
+			font-size: 2rem
+			margin: auto
+	ul
+		display: none
+
+	&__item
+		font-weight: 700
+		padding: 1rem 2rem
+		text-align: center
+		&--active
+			color: $orange
+	@media only screen and (min-width: 576px)
+		margin: auto
+		transform: translateY(-1.25rem)
+		p
+			display: none
+		ul
+			display: flex
+			flex-wrap: wrap
+			justify-content: space-around
+			align-items: center
+		&__item
+			width: 33%
+	@media only screen and (min-width: 1200px)
+		border: solid $grey 2px
+		margin: auto
+		transform: translateY(-3rem)
+		width: 75%
+		ul
+			justify-content: space-between
+		&__item
+			padding: 2rem 4rem
+			width: auto
+	@media only screen and (min-width: 1600px)
+		max-width: calc((75 * 1600px) / 100)
+
+.slideShow
+	@include greyOverlay
+	@include container
+	max-width: 100vw
+	height: 100vh
+	display: flex
+	min-height: 720px
+	position: relative
+	&::before
+		opacity: 0.8
+	&__label
+		color: white
+		line-height: 1.5
+		display: flex
+		flex-direction: column
+		justify-content: center
+		height: 100%
+		h2, p, a
+			font-family: 'Mukta', sans-serif
+			margin: 2rem 0
+		h2
+			font-size: 3rem
+	&__image
+		top: 0
+		left: 0
+		height: 100%
+		width: 100%
+		position: absolute
+		z-index: -2
+		img
+			object-fit: cover
+			position: absolute
+			height: 100%
+			width: 100%
+	@media only screen and (min-width: 576px)
+		transform: translateY(-1.25rem)
+		&__label
+			width: 75%
+	@media only screen and (min-width: 1200px)
+		transform: translateY(-5.4rem)
+		&__label
+			width: 50%
+	@media only screen and (min-width: 1600px)
+		border-top: 2px solid $grey
+		border-bottom: 2px solid $grey
+
+
+.cardContainer
+	@include container
+	background-image: url('../assets/brunch9-lrg.jpg')
+	background-size: cover
+	background-position: 50% 50%
+	background-attachment: fixed
+	display: flex
+	flex-direction: column
+	justify-content: space-around
+	margin: 0 auto
+	padding-top: 1rem !important
+	padding-bottom: 0 !important
+	@media only screen and (min-width: 576px)
+		flex-direction: row
+		flex-wrap: wrap
+		padding-top: 0 !important
+	@media only screen and (min-width: 1024px)
+		justify-content: space-between
+
+
+.iconCard
+	@include darkOverlay
+	@include topShadow
+	align-items: center
+	background: $wheat
+	display: flex
+	flex-direction: column
+	justify-content: space-between
+	padding: 2rem
+	text-align: center
+	margin-bottom: 1rem
+	&::before
+		opacity: 0.3
+	i
+		font-size: 3rem
+		padding: .5rem
+		background: white
+		border-radius: 50%
+		margin: 0 1rem 1rem 0 
+	div
+		display: flex
+		flex-direction: column
+		font-weight: 700
+		h2
+			color: $orange
+			font-size: 1.5rem
+	@media only screen and (min-width: 576px)
+		padding: 3rem 2rem
+		transform: translateY(-8rem)
+	@media only screen and (min-width: 1200px)
+		flex-direction: row
+		justify-content: flex-start
+		text-align: start
+		transform: translateY(-12rem)
+		i
+			margin: 0 1rem 0 0 
+
+.blurb
+	@include container
+	text-align: center
+	h3, h2, blockquote
+		margin-bottom: 2rem
+	p, blockquote
+		margin: 2rem auto
+	h3
+		color: $orange
+	blockquote
+		margin: auto
+		h2
+			@include darkOverlay
+			color: $white
+			font-size: 2rem
+			font-style: italic
+			border-left: $orange solid 4px
+			padding-left: 1rem
+			text-align: start
+	p
+		max-width: 60ch
+		margin: auto
+	@media only screen and (min-width: 480px)
+		blockquote
+			width: 75%
+	@media only screen and (min-width: 768px)
+		blockquote
+			width: 50%
