@@ -756,6 +756,7 @@ body {
 }
 .reserve::before {
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 25%);
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 25%);
   opacity: 1;
 }
 .reserve__blurb, .reserve__form {
@@ -778,6 +779,7 @@ body {
   }
   .reserve::before {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 100%, 0 25%);
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 25%);
   }
   .reserve__blurb {
     padding: 0 2rem;
