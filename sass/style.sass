@@ -25,6 +25,11 @@ $blue: #127475ff
 	justify-content: center
 	flex-direction: column
 
+@mixin parallax
+	background-attachment: scroll
+	@media only screen and (min-width: 1024px)
+		background-attachment: fixed
+
 @mixin center
 	margin: auto
 
@@ -284,10 +289,10 @@ body
 
 .cardContainer
 	@include container
+	@include parallax
 	background-image: url('../assets/brunch9-lrg.jpg')
 	background-size: cover
 	background-position: 50% 50%
-	background-attachment: scroll
 	display: flex
 	flex-direction: column
 	justify-content: space-around
@@ -299,7 +304,6 @@ body
 		flex-wrap: wrap
 		padding-top: 0 !important
 	@media only screen and (min-width: 1024px)
-		background-attachment: fixed
 		justify-content: space-between
 
 
@@ -387,44 +391,78 @@ body
 
 .gallery
 	@include container
-
+	@include overlay
 	background: $lightBlue
-	display: flex
-	flex-direction: column
 	position: relative
 	z-index: 0
+	&::before
+		@include parallax
+		background-image: url('../assets/brunch3-lrg.jpg')
+		background-size: cover
+		background-position: center center
+		top: 10%
+		opacity: 1
+		height: 35%
+		width: 100%
+	&::after
+		background-image: url('../assets/brunch4-lrg.jpg')
+		background-size: cover
+		background-position: center center
+		content: ''
+		position: absolute
+		bottom: 10%
+		height: 35%
+		width: 100%
+		left: 0%
+		z-index: -1
+	&__cardContainer
+		display: flex
+		flex-direction: column
+		justify-content: space-around
+	&__title
+		background: $lightBlue
+		color: $orange
+		padding: 4rem 0 0 0 
+		max-width: 1600px
+		margin: 0 auto
+		text-align: center
 	&__card
 		@include topShadow
 		align-items: center
 		color: white
 		display: flex
 		flex-direction: column
-		justify-content: space-between
-		height: 25rem
 		position: relative
 		margin: 1rem
 		& > *
 			@include lightOverlay
 			color: $black
-			padding: 2rem 1rem
+			padding: 1rem
 			width: 100%
 			z-index: 1
-		div
+		&__title
 			position: relative
 			overflow: visible
+			margin-bottom: 6rem
+			p
+				color: $orange
+				font-weight: 700
+				font-size: 0.8rem
+				font-family: 'Open Sans', sans-serif
 			span
 				@include lightOverlay
 				position: absolute
 				border-radius: 50%
-				right: calc((100% - 80px) / 2)
-				top: -39px
+				right: calc((100% - 64px) / 2)
+				bottom: -32px
 				&::before
-					clip-path: polygon(0% 0%, 100% 0%, 100% 50%, 0% 50%)
+					clip-path: polygon(0% 50%, 100% 50%, 100% 100%, 0% 100%)
 				i
-					font-size: 3rem
+					color: $orange
+					font-size: 2rem
 					padding: 1rem
-			p
-				z-index: 3
+		p
+			margin-top: auto
 		picture
 			position: absolute
 			height: 100%
@@ -436,10 +474,27 @@ body
 				width: 100%
 				position: absolute
 				object-fit: cover
-	@media only screen and (min-width: 720px)
-		flex-direction: row
+	@media only screen and (min-width: 576px)
+		&::before
+			height: 50%
+			top: 25%
+		&::after
+			display: none
+		&__cardContainer
+			flex-direction: row
+			flex-wrap: wrap
 		&__card
+			max-width: calc(50% - 2rem)
+	@media only screen and (min-width: 1200px)
+		&::before
+			height: 75%
+			top: calc((100% - 75%) / 2)
+		&__cardContainer
+			justify-content: space-between
+		&__card
+			max-width: calc(25% - 2rem)
 			&:nth-of-type(1)
 				margin-left: 0
 			&:nth-last-of-type(1)
 				margin-right: 0
+			

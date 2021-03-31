@@ -311,10 +311,10 @@ body {
 
 .cardContainer {
   padding: 2rem 1rem;
+  background-attachment: scroll;
   background-image: url("../assets/brunch9-lrg.jpg");
   background-size: cover;
   background-position: 50% 50%;
-  background-attachment: scroll;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -339,6 +339,11 @@ body {
     margin: auto;
   }
 }
+@media only screen and (min-width: 1024px) {
+  .cardContainer {
+    background-attachment: fixed;
+  }
+}
 @media only screen and (min-width: 576px) {
   .cardContainer {
     flex-direction: row;
@@ -348,7 +353,6 @@ body {
 }
 @media only screen and (min-width: 1024px) {
   .cardContainer {
-    background-attachment: fixed;
     justify-content: space-between;
   }
 }
@@ -525,9 +529,10 @@ body {
 
 .gallery {
   padding: 2rem 1rem;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
   background: #0e9594ff;
-  display: flex;
-  flex-direction: column;
   position: relative;
   z-index: 0;
 }
@@ -548,14 +553,62 @@ body {
     margin: auto;
   }
 }
+.gallery::before {
+  content: "";
+  left: 0;
+  height: 100%;
+  position: absolute;
+  opacity: 0.8;
+  top: 0;
+  width: 100%;
+  z-index: -1;
+}
+.gallery::before {
+  background-attachment: scroll;
+  background-image: url("../assets/brunch3-lrg.jpg");
+  background-size: cover;
+  background-position: center center;
+  top: 10%;
+  opacity: 1;
+  height: 35%;
+  width: 100%;
+}
+@media only screen and (min-width: 1024px) {
+  .gallery::before {
+    background-attachment: fixed;
+  }
+}
+.gallery::after {
+  background-image: url("../assets/brunch4-lrg.jpg");
+  background-size: cover;
+  background-position: center center;
+  content: "";
+  position: absolute;
+  bottom: 10%;
+  height: 35%;
+  width: 100%;
+  left: 0%;
+  z-index: -1;
+}
+.gallery__cardContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.gallery__title {
+  background: #0e9594ff;
+  color: #f2542dff;
+  padding: 4rem 0 0 0;
+  max-width: 1600px;
+  margin: 0 auto;
+  text-align: center;
+}
 .gallery__card {
   box-shadow: 0px 5px 2.5px 2.5px #040404;
   align-items: center;
   color: white;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  height: 25rem;
   position: relative;
   margin: 1rem;
 }
@@ -564,7 +617,7 @@ body {
   overflow: hidden;
   z-index: 1;
   color: #040404;
-  padding: 2rem 1rem;
+  padding: 1rem;
   width: 100%;
   z-index: 1;
 }
@@ -581,20 +634,27 @@ body {
 .gallery__card > *::before {
   background: #F7F7F7;
 }
-.gallery__card div {
+.gallery__card__title {
   position: relative;
   overflow: visible;
+  margin-bottom: 6rem;
 }
-.gallery__card div span {
+.gallery__card__title p {
+  color: #f2542dff;
+  font-weight: 700;
+  font-size: 0.8rem;
+  font-family: "Open Sans", sans-serif;
+}
+.gallery__card__title span {
   position: relative;
   overflow: hidden;
   z-index: 1;
   position: absolute;
   border-radius: 50%;
-  right: calc((100% - 80px) / 2);
-  top: -39px;
+  right: calc((100% - 64px) / 2);
+  bottom: -32px;
 }
-.gallery__card div span::before {
+.gallery__card__title span::before {
   content: "";
   left: 0;
   height: 100%;
@@ -604,18 +664,19 @@ body {
   width: 100%;
   z-index: -1;
 }
-.gallery__card div span::before {
+.gallery__card__title span::before {
   background: #F7F7F7;
 }
-.gallery__card div span::before {
-  clip-path: polygon(0% 0%, 100% 0%, 100% 50%, 0% 50%);
+.gallery__card__title span::before {
+  clip-path: polygon(0% 50%, 100% 50%, 100% 100%, 0% 100%);
 }
-.gallery__card div span i {
-  font-size: 3rem;
+.gallery__card__title span i {
+  color: #f2542dff;
+  font-size: 2rem;
   padding: 1rem;
 }
-.gallery__card div p {
-  z-index: 3;
+.gallery__card p {
+  margin-top: auto;
 }
 .gallery__card picture {
   position: absolute;
@@ -630,9 +691,32 @@ body {
   position: absolute;
   object-fit: cover;
 }
-@media only screen and (min-width: 720px) {
-  .gallery {
+@media only screen and (min-width: 576px) {
+  .gallery::before {
+    height: 50%;
+    top: 25%;
+  }
+  .gallery::after {
+    display: none;
+  }
+  .gallery__cardContainer {
     flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .gallery__card {
+    max-width: calc(50% - 2rem);
+  }
+}
+@media only screen and (min-width: 1200px) {
+  .gallery::before {
+    height: 75%;
+    top: calc((100% - 75%) / 2);
+  }
+  .gallery__cardContainer {
+    justify-content: space-between;
+  }
+  .gallery__card {
+    max-width: calc(25% - 2rem);
   }
   .gallery__card:nth-of-type(1) {
     margin-left: 0;
