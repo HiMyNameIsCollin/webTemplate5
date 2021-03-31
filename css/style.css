@@ -314,7 +314,7 @@ body {
   background-image: url("../assets/brunch9-lrg.jpg");
   background-size: cover;
   background-position: 50% 50%;
-  background-attachment: fixed;
+  background-attachment: scroll;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -348,6 +348,7 @@ body {
 }
 @media only screen and (min-width: 1024px) {
   .cardContainer {
+    background-attachment: fixed;
     justify-content: space-between;
   }
 }
@@ -418,7 +419,14 @@ body {
 
 .blurb {
   padding: 2rem 1rem;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  background: #0e9594ff;
+  border-bottom: solid 1px #0e9594ff;
   text-align: center;
+  padding-bottom: 0 !important;
+  z-index: 1;
 }
 @media only screen and (min-width: 768px) {
   .blurb {
@@ -436,6 +444,23 @@ body {
     max-width: 1600px;
     margin: auto;
   }
+}
+.blurb::before {
+  content: "";
+  left: 0;
+  height: 100%;
+  position: absolute;
+  opacity: 0.8;
+  top: 0;
+  width: 100%;
+  z-index: -1;
+}
+.blurb::before {
+  background: #f5dfbbff;
+}
+.blurb::before {
+  opacity: 1;
+  clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 0% 100%);
 }
 .blurb h3, .blurb h2, .blurb blockquote {
   margin-bottom: 2rem;
@@ -455,6 +480,7 @@ body {
   z-index: 1;
   color: #F7F7F7;
   font-size: 2rem;
+  font-weight: 400;
   font-style: italic;
   border-left: #f2542dff solid 4px;
   padding-left: 1rem;
@@ -475,7 +501,13 @@ body {
 }
 .blurb p {
   max-width: 60ch;
-  margin: auto;
+}
+.blurb iframe {
+  border: solid #040404 2px;
+  height: 350px !important;
+  position: relative;
+  width: 100%;
+  z-index: 0;
 }
 @media only screen and (min-width: 480px) {
   .blurb blockquote {
@@ -485,6 +517,128 @@ body {
 @media only screen and (min-width: 768px) {
   .blurb blockquote {
     width: 50%;
+  }
+  .blurb iframe {
+    height: 500px !important;
+  }
+}
+
+.gallery {
+  padding: 2rem 1rem;
+  background: #0e9594ff;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 0;
+}
+@media only screen and (min-width: 768px) {
+  .gallery {
+    padding: 2rem 4rem;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .gallery {
+    padding: 4rem;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  .gallery {
+    padding: 6rem;
+    max-width: 1600px;
+    margin: auto;
+  }
+}
+.gallery__card {
+  box-shadow: 0px 5px 2.5px 2.5px #040404;
+  align-items: center;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 25rem;
+  position: relative;
+  margin: 1rem;
+}
+.gallery__card > * {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  color: #040404;
+  padding: 2rem 1rem;
+  width: 100%;
+  z-index: 1;
+}
+.gallery__card > *::before {
+  content: "";
+  left: 0;
+  height: 100%;
+  position: absolute;
+  opacity: 0.8;
+  top: 0;
+  width: 100%;
+  z-index: -1;
+}
+.gallery__card > *::before {
+  background: #F7F7F7;
+}
+.gallery__card div {
+  position: relative;
+  overflow: visible;
+}
+.gallery__card div span {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  position: absolute;
+  border-radius: 50%;
+  right: calc((100% - 80px) / 2);
+  top: -39px;
+}
+.gallery__card div span::before {
+  content: "";
+  left: 0;
+  height: 100%;
+  position: absolute;
+  opacity: 0.8;
+  top: 0;
+  width: 100%;
+  z-index: -1;
+}
+.gallery__card div span::before {
+  background: #F7F7F7;
+}
+.gallery__card div span::before {
+  clip-path: polygon(0% 0%, 100% 0%, 100% 50%, 0% 50%);
+}
+.gallery__card div span i {
+  font-size: 3rem;
+  padding: 1rem;
+}
+.gallery__card div p {
+  z-index: 3;
+}
+.gallery__card picture {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  z-index: inherit;
+}
+.gallery__card picture img {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  object-fit: cover;
+}
+@media only screen and (min-width: 720px) {
+  .gallery {
+    flex-direction: row;
+  }
+  .gallery__card:nth-of-type(1) {
+    margin-left: 0;
+  }
+  .gallery__card:nth-last-of-type(1) {
+    margin-right: 0;
   }
 }
 

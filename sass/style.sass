@@ -40,25 +40,6 @@ $blue: #127475ff
 @mixin bottom
 	margin-top: auto
 
-@mixin icon
-	display: block
-	min-height: 16px
-	position: relative
-	overflow: hidden
-	min-width: 16px
-	z-index: 1
-	&::before
-		background-size: contain
-		background-repeat: no-repeat
-		background-position: center center
-		content: ''
-		left: 0
-		height: 100%
-		position: absolute
-		top: 0
-		width: 100%
-		z-index: -1
-
 @mixin overlay
 	position: relative
 	overflow: hidden
@@ -136,6 +117,8 @@ ul
 
 body
 	background: $wheat
+
+.wrapper
 
 .header
 	@include container
@@ -304,7 +287,7 @@ body
 	background-image: url('../assets/brunch9-lrg.jpg')
 	background-size: cover
 	background-position: 50% 50%
-	background-attachment: fixed
+	background-attachment: scroll
 	display: flex
 	flex-direction: column
 	justify-content: space-around
@@ -316,6 +299,7 @@ body
 		flex-wrap: wrap
 		padding-top: 0 !important
 	@media only screen and (min-width: 1024px)
+		background-attachment: fixed
 		justify-content: space-between
 
 
@@ -358,7 +342,15 @@ body
 
 .blurb
 	@include container
+	@include wheatOverlay
+	background: $lightBlue
+	border-bottom: solid 1px $lightBlue
 	text-align: center
+	padding-bottom: 0 !important
+	z-index: 1
+	&::before
+		opacity: 1
+		clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 0% 100%)
 	h3, h2, blockquote
 		margin-bottom: 2rem
 	p, blockquote
@@ -371,16 +363,83 @@ body
 			@include darkOverlay
 			color: $white
 			font-size: 2rem
+			font-weight: 400
 			font-style: italic
 			border-left: $orange solid 4px
 			padding-left: 1rem
 			text-align: start
 	p
 		max-width: 60ch
-		margin: auto
+	iframe
+		border: solid $black 2px
+		height: 350px !important
+		position: relative
+		width: 100%
+		z-index: 0
 	@media only screen and (min-width: 480px)
 		blockquote
 			width: 75%
 	@media only screen and (min-width: 768px)
 		blockquote
 			width: 50%
+		iframe
+			height: 500px !important
+
+.gallery
+	@include container
+
+	background: $lightBlue
+	display: flex
+	flex-direction: column
+	position: relative
+	z-index: 0
+	&__card
+		@include topShadow
+		align-items: center
+		color: white
+		display: flex
+		flex-direction: column
+		justify-content: space-between
+		height: 25rem
+		position: relative
+		margin: 1rem
+		& > *
+			@include lightOverlay
+			color: $black
+			padding: 2rem 1rem
+			width: 100%
+			z-index: 1
+		div
+			position: relative
+			overflow: visible
+			span
+				@include lightOverlay
+				position: absolute
+				border-radius: 50%
+				right: calc((100% - 80px) / 2)
+				top: -39px
+				&::before
+					clip-path: polygon(0% 0%, 100% 0%, 100% 50%, 0% 50%)
+				i
+					font-size: 3rem
+					padding: 1rem
+			p
+				z-index: 3
+		picture
+			position: absolute
+			height: 100%
+			width: 100%
+			padding: 0
+			z-index: inherit
+			img
+				height: 100%
+				width: 100%
+				position: absolute
+				object-fit: cover
+	@media only screen and (min-width: 720px)
+		flex-direction: row
+		&__card
+			&:nth-of-type(1)
+				margin-left: 0
+			&:nth-last-of-type(1)
+				margin-right: 0
