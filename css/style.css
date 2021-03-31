@@ -464,6 +464,7 @@ body {
 }
 .blurb::before {
   opacity: 1;
+  -webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 0% 100%);
   clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 0% 100%);
 }
 .blurb h3, .blurb h2, .blurb blockquote {
@@ -656,6 +657,7 @@ body {
   background: #F7F7F7;
 }
 .gallery__card__title span::before {
+  -webkit-clip-path: polygon(0% 50%, 100% 50%, 100% 100%, 0% 100%);
   clip-path: polygon(0% 50%, 100% 50%, 100% 100%, 0% 100%);
 }
 .gallery__card__title span i {

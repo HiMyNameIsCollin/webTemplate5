@@ -354,6 +354,7 @@ body
 	z-index: 1
 	&::before
 		opacity: 1
+		-webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 0% 100%)
 		clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 0% 100%)
 	h3, h2, blockquote
 		margin-bottom: 2rem
@@ -445,6 +446,7 @@ body
 				right: calc((100% - 64px) / 2)
 				bottom: -32px
 				&::before
+					-webkit-clip-path: polygon(0% 50%, 100% 50%, 100% 100%, 0% 100%)
 					clip-path: polygon(0% 50%, 100% 50%, 100% 100%, 0% 100%)
 				i
 					color: $orange
