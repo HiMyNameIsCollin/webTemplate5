@@ -100,10 +100,10 @@ $blue: #127475ff
 		background: $blue
 
 @mixin bottomShadow
-	box-shadow: 0px 5px 5px 5px $black
+	box-shadow: 0px 2.5px 5px 5px $black
 
 @mixin topShadow
-	box-shadow: 0px 5px 2.5px 2.5px $black
+	box-shadow: 0px 2.5px 2.5px 2.5px $black
 
 *
 	box-sizing: border-box
@@ -400,25 +400,14 @@ body
 		background-image: url('../assets/brunch3-lrg.jpg')
 		background-size: cover
 		background-position: center center
-		top: 10%
-		opacity: 1
-		height: 35%
+		height: 50%
+		top: 25%
+		opacity: 0
 		width: 100%
-	&::after
-		background-image: url('../assets/brunch4-lrg.jpg')
-		background-size: cover
-		background-position: center center
-		content: ''
-		position: absolute
-		bottom: 10%
-		height: 35%
-		width: 100%
-		left: 0%
-		z-index: -1
 	&__cardContainer
 		display: flex
 		flex-direction: column
-		justify-content: space-around
+		justify-content: space-between
 	&__title
 		background: $lightBlue
 		color: $orange
@@ -476,15 +465,16 @@ body
 				object-fit: cover
 	@media only screen and (min-width: 576px)
 		&::before
-			height: 50%
-			top: 25%
-		&::after
-			display: none
+			opacity: 1
 		&__cardContainer
 			flex-direction: row
 			flex-wrap: wrap
 		&__card
 			max-width: calc(50% - 2rem)
+			&:nth-of-type(odd)
+				margin-left: 0
+			&:nth-of-type(even)
+				margin-right: 0
 	@media only screen and (min-width: 1200px)
 		&::before
 			height: 75%
@@ -498,3 +488,76 @@ body
 			&:nth-last-of-type(1)
 				margin-right: 0
 			
+.reserve 
+	@include container
+	@include lightBlueOverlay
+	display: flex
+	flex-direction: column
+	&::before
+		clip-path: polygon(0 0, 100% 0, 100% 100%, 0 25%)
+		opacity: 1
+	&__blurb, &__form
+		width: 100%
+		h3
+			color: $orange
+	&__blurb
+		padding: 2rem
+		order: 1
+		text-align: start
+
+	&__form
+		order: 2
+	@media only screen and (min-width: 768px)
+		flex-direction: row
+		&::before
+			clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 100%, 0 25%)
+		&__blurb
+			padding: 0 2rem
+			order: 2
+			text-align: start
+		&__form
+			order: 1
+		&__form, &__blurb
+			width: 50%
+
+.services
+	*
+		margin-bottom: 1rem
+	&__cardContainer
+	&__card
+		display: flex
+
+
+.form
+	@include bottomShadow
+	background: $white
+	display: flex
+	flex-direction: column
+	padding: 2rem
+	&__group
+		@include wheatOverlay
+		@include topShadow
+		display: flex
+		flex-direction: column
+		padding: 1rem
+		margin-bottom: 1rem
+		font-weight: 700
+	&__label
+		margin-bottom: 1rem
+		span
+			color: red
+	&__input
+		background: none
+		border: none
+		outline: none
+	@media only screen and (min-width: 768px)
+		flex-direction: row
+		flex-wrap: wrap
+		justify-content: space-between
+		h3, h2
+			width: 100%
+		&__group
+			width: 100%
+			&:nth-of-type(1), &:nth-of-type(2)
+				width: 45%
+		
