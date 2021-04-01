@@ -112,10 +112,12 @@ $blue: #127475ff
 	font-family: 'Mukta', sans-serif
 	font-family: 'Open Sans', sans-serif
 	font-family: 'Nunito', sans-serif
+	letter-spacing: 2px
 
 a
 	color: inherit
 	text-decoration: none
+
 
 ul
 	list-style: none 
@@ -303,7 +305,7 @@ body
 		flex-direction: row
 		flex-wrap: wrap
 		padding-top: 0 !important
-	@media only screen and (min-width: 1024px)
+	@media only screen and (min-width: 1080px)
 		justify-content: space-between
 
 
@@ -336,10 +338,12 @@ body
 	@media only screen and (min-width: 576px)
 		padding: 3rem 2rem
 		transform: translateY(-8rem)
-	@media only screen and (min-width: 1200px)
+		max-width: calc(50% - 2rem)
+	@media only screen and (min-width: 1080px)
 		flex-direction: row
 		justify-content: flex-start
 		text-align: start
+		max-width: calc(33% - 1rem)
 		transform: translateY(-12rem)
 		i
 			margin: 0 1rem 0 0 
@@ -499,15 +503,12 @@ body
 		clip-path: polygon(0 0, 100% 0, 100% 100%, 0 25%)
 		-webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 25%)
 		opacity: 1
-	&__blurb, &__form
+	&__services, &__form
 		width: 100%
 		h3
 			color: $orange
-	&__blurb
-		padding: 2rem
+	&__services
 		order: 1
-		text-align: start
-
 	&__form
 		order: 2
 	@media only screen and (min-width: 768px)
@@ -515,21 +516,37 @@ body
 		&::before
 			clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 100%, 0 25%)
 			-webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 25%)
-		&__blurb
-			padding: 0 2rem
+		&__services
 			order: 2
-			text-align: start
 		&__form
 			order: 1
-		&__form, &__blurb
+		&__form, &__services
 			width: 50%
 
 .services
-	*
-		margin-bottom: 1rem
+	text-align: start
+	& > *
+		margin-bottom: 2rem
 	&__cardContainer
 	&__card
+		align-items: center
 		display: flex
+		i
+			font-size: 3rem
+			padding: .5rem
+			background: white
+			border-radius: 50%
+		div
+			padding: .5rem 0 .5rem 1rem
+			& > *
+				margin-bottom: 1rem
+	@media only screen and (min-width: 768px)
+		padding-left: 2rem
+		&__card
+			i
+				font-size: 4rem
+			div
+				padding: 1rem
 
 
 .form
@@ -538,28 +555,40 @@ body
 	display: flex
 	flex-direction: column
 	padding: 2rem
+	h3, h2
+		margin-bottom: 1rem
+		width: 100%
 	&__group
 		@include wheatOverlay
 		@include topShadow
 		display: flex
 		flex-direction: column
-		padding: 1rem
+		padding: .5rem 1rem 1rem 1rem 
 		margin-bottom: 1rem
 		font-weight: 700
 	&__label
+		color: $orange
 		margin-bottom: 1rem
+		font-size: .9rem
 		span
 			color: red
 	&__input
 		background: none
 		border: none
+		font-weight: 700
 		outline: none
+		&::placeholder
+			color: $grey
+		&[type=submit]
+			@include topShadow
+			background: $wheat
+			border-radius: 0 
+			padding: 2rem
+
 	@media only screen and (min-width: 768px)
 		flex-direction: row
 		flex-wrap: wrap
 		justify-content: space-between
-		h3, h2
-			width: 100%
 		&__group
 			width: 100%
 			&:nth-of-type(1), &:nth-of-type(2)
