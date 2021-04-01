@@ -8,7 +8,7 @@
 	<script type="text/javascript" src='script.js' defer></script>
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;700&family=Nunito:wght@400;700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
-	<script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js'></script>
+
 	<title>Template</title>
 </head>
 <body>
@@ -46,10 +46,14 @@
 					<p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat illo expedita, magnam architecto inventore voluptatem sit animi placeat quas soluta, et, laboriosam! Laboriosam velit officiis voluptatibus voluptatum dolore quaerat quasi delectus, ad, ut consequatur vero cum ullam quae. Labore quibusdam saepe, dolore esse. Debitis, illum, vel. Eveniet excepturi, unde totam.</p>
 					<a href="" class='slideShow__btn'> Get in touch </a>
 				</div>
-				<div class='slide__image'>
-					<img src="assets/brunch2-lrg.jpg">
-				</div>				
+				<picture class='slide__image'>
+				    <source srcset="assets/brunch1-lrg.jpg"
+				            media="(min-width: 576px)">
+				    <img loading='lazy' src="assets/brunch1-sm.jpg"/>
+				</picture>				
 			</article>
+
+			
 		</section>
 
 		<section class='cardContainer'>
@@ -76,8 +80,8 @@
 			</article>
 		</section>
 
-		<section class='reserve'>
-			<form class='form reserve__form'>
+		<section class='split'>
+			<form class='form split__form'>
 				<h3> Drop us a line</h3>
 				<h2> What can we do for you?</h2>
 				<div class='form__group'>
@@ -98,7 +102,7 @@
 				</div>
 				<input class='form__input' type="submit" name="">
 			</form>
-			<div class='reserve__services services'>
+			<div class='split__services services'>
 				<h3> Our services</h3>
 				<h2> Reservations, Events, Catering.</h2>
 				<p> Lorem ipsum dolor, sit, amet consectetur adipisicing elit. Dolore, aut, unde cum blanditiis vel eligendi, accusamus deleniti amet ducimus, a exercitationem! Similique totam, quae deserunt eaque necessitatibus blanditiis in quo.</p>

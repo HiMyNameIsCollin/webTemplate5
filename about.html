@@ -8,7 +8,7 @@
 	<script type="text/javascript" src='script.js' defer></script>
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;700&family=Nunito:wght@400;700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
-	<script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js'></script>
+
 	<title>Template</title>
 </head>
 <body>
@@ -46,9 +46,11 @@
 					<p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat illo expedita, magnam architecto inventore voluptatem sit animi placeat quas soluta, et, laboriosam! Laboriosam velit officiis voluptatibus voluptatum dolore quaerat quasi delectus, ad, ut consequatur vero cum ullam quae. Labore quibusdam saepe, dolore esse. Debitis, illum, vel. Eveniet excepturi, unde totam.</p>
 					<a href="" class='slideShow__btn'> Get in touch </a>
 				</div>
-				<div class='slide__image'>
-					<img src="assets/brunch2-lrg.jpg">
-				</div>				
+				<picture class='slide__image'>
+				    <source srcset="assets/brunch1-lrg.jpg"
+				            media="(min-width: 576px)">
+				    <img loading='lazy' src="assets/brunch1-sm.jpg"/>
+				</picture>				
 			</article>
 
 			
@@ -78,7 +80,7 @@
 			</article>
 		</section>
 
-		<section class='blurb blurb--noTP'>
+		<section class='blurb '>
 			<h3>
 				About us
 			</h3>

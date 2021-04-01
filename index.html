@@ -8,7 +8,6 @@
 	<script type="text/javascript" src='script.js' defer></script>
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;700&family=Nunito:wght@400;700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
-	<script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js'></script>
 	<title>Template</title>
 </head>
 <body>
@@ -44,11 +43,13 @@
 				<div class='slide__label'>
 					<h2> Testing testing </h2>
 					<p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat illo expedita, magnam architecto inventore voluptatem sit animi placeat quas soluta, et, laboriosam! Laboriosam velit officiis voluptatibus voluptatum dolore quaerat quasi delectus, ad, ut consequatur vero cum ullam quae. Labore quibusdam saepe, dolore esse. Debitis, illum, vel. Eveniet excepturi, unde totam.</p>
-					<a href="" class='slideShow__btn'> Get in touch </a>
+					<a href="" class='slide__btn'> Get in touch </a>
 				</div>
-				<div class='slide__image'>
-					<img src="assets/brunch2-lrg.jpg">
-				</div>				
+				<picture class='slide__image'>
+				    <source srcset="assets/brunch1-lrg.jpg"
+				            media="(min-width: 576px)">
+				    <img loading='lazy' src="assets/brunch1-sm.jpg"/>
+				</picture>				
 			</article>
 
 			
@@ -78,7 +79,7 @@
 			</article>
 		</section>
 
-		<section class='blurb blurb--noBP'>
+		<section class='blurb '>
 			<h3>
 				About us
 			</h3>
@@ -88,9 +89,9 @@
 				</h2>
 			</blockquote>
 			<p> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tenetur corporis necessitatibus, aliquam eos, deserunt reprehenderit accusantium, quibusdam officia dolorum vel velit ea blanditiis, aut neque ratione. Repellat, numquam totam error quam doloribus expedita amet dolorum, voluptates aliquam. Harum, eos? Commodi cum sed quidem! Quod molestias dicta obcaecati ipsa perferendis aliquid unde ab modi, reprehenderit sequi libero velit, doloribus! Facilis corporis pariatur, tempora. Minima sequi, porro voluptatum velit odio nulla! Ullam voluptates nihil architecto ex itaque.</p>
-			<iframe height='500px' src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+			<iframe loading='lazy' height='500px' src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 		</section>
-			<h3 class='gallery__title'> Events</h3>
+			<h3 class='gallery__title'> Upcoming Events</h3>
 		<section class='gallery'>
 			<div class='gallery__cardContainer'>
 				<article class='gallery__card'>
@@ -159,8 +160,8 @@
 
 		</section>
 
-		<section class='reserve'>
-			<form class='form reserve__form'>
+		<section class='split'>
+			<form class='form split__form'>
 				<h3> Drop us a line</h3>
 				<h2> What can we do for you?</h2>
 				<div class='form__group'>
@@ -181,7 +182,7 @@
 				</div>
 				<input class='form__input' type="submit" name="">
 			</form>
-			<div class='reserve__services services'>
+			<div class='split__services services'>
 				<h3> Our services</h3>
 				<h2> Reservations, Events, Catering.</h2>
 				<p> Lorem ipsum dolor, sit, amet consectetur adipisicing elit. Dolore, aut, unde cum blanditiis vel eligendi, accusamus deleniti amet ducimus, a exercitationem! Similique totam, quae deserunt eaque necessitatibus blanditiis in quo.</p>
