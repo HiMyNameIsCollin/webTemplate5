@@ -917,6 +917,7 @@ h3 {
 }
 .form__input[type=submit] {
   box-shadow: 0px 5px 2.5px 2.5px #040404;
+  -webkit-appearance: none;
   background: #f5dfbbff;
   border-radius: 0;
   padding: 1rem 2rem;
