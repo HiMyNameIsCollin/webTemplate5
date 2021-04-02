@@ -30,21 +30,30 @@
 		</header>
 
 		<nav class='nav'>
-			<p> <i class="far fa-hand-pointer"></i> Navigation <i class="fas fa-level-down-alt"></i></p>
+			<p class='nav__button'> <i class="far fa-hand-pointer"></i> Navigation <i class="fas fa-level-down-alt"></i></p>
 			<ul>
 				<li class='nav__item '><a href="./">Home</a></li>
 				<li class='nav__item nav__item--active' ><a href="/menu.html">Menu</a></li>
 				<li class='nav__item' ><a href="/about.html">About</a></li>
 				<li class='nav__item' ><a href="/contact.html">Contact</a></li>
 			</ul>
+
 		</nav>
 
 		<section class='slideShow'>
+
+			<ul class='slideShow__menu dropDown'>
+				<li class='dropDown__item'><a href="./">Home</a></li>
+				<li class='dropDown__item--active' ><a href="/menu.html">Menu</a></li>
+				<li class='dropDown__item' ><a href="/about.html">About</a></li>
+				<li class='dropDown__item' ><a href="/contact.html">Contact</a></li>		
+			</ul>
+
 			<article class='slide'>
 				<div class='slide__label'>
 					<h2> Testing testing </h2>
 					<p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat illo expedita, magnam architecto inventore voluptatem sit animi placeat quas soluta, et, laboriosam! Laboriosam velit officiis voluptatibus voluptatum dolore quaerat quasi delectus, ad, ut consequatur vero cum ullam quae. Labore quibusdam saepe, dolore esse. Debitis, illum, vel. Eveniet excepturi, unde totam.</p>
-					<a href="" class='slideShow__btn'> Get in touch </a>
+					<a href="/contact.html"  class='slide__btn'> Get in touch </a>
 				</div>
 				<picture class='slide__image'>
 				    <source srcset="assets/brunch1-lrg.jpg"
@@ -53,7 +62,6 @@
 				</picture>				
 			</article>
 
-			
 		</section>
 
 		<section class='cardContainer'>
@@ -80,8 +88,102 @@
 			</article>
 		</section>
 
-		<section class='split'>
-			
+		<section class='split' id='menu'>
+			<div class='split__menu menu'>
+				<h3>Restaurant</h3>
+				<h4> Mains </h4>
+				<div class='menu__group'>
+					<h5> Eggs Benedict </h5>
+					<ul><li>13</li></ul>
+					<p> Lorem, ipsum, dolor sit amet consectetur adipisicing elit. Perspiciatis officia ipsa odio nesciunt alias sequi cum quaerat nemo blanditiis, ipsum necessitatibus adipisci doloribus nostrum possimus?</p>
+				</div>
+				<div class='menu__group'>
+					<h5> Eggs Florentine </h5>
+					<ul><li>14</li></ul>
+					<p> Lorem, ipsum, dolor sit amet consectetur adipisicing elit. Perspiciatis officia ipsa odio nesciunt alias sequi cum quaerat nemo blanditiis, ipsum necessitatibus adipisci doloribus nostrum possimus?</p>
+				</div>
+				<div class='menu__group'>
+					<h5> Eggs Pacific </h5>
+					<ul><li>15</li></ul>
+					<p> Lorem, ipsum, dolor sit amet consectetur adipisicing elit. Perspiciatis officia ipsa odio nesciunt alias sequi cum quaerat nemo blanditiis, ipsum necessitatibus adipisci doloribus nostrum possimus?</p>
+				</div>
+				<div class='menu__group'>
+					<h5> Big Bad Breakfast </h5>
+					<ul><li>13</li></ul>
+					<p> Lorem, ipsum, dolor sit amet consectetur adipisicing elit. Perspiciatis officia ipsa odio nesciunt alias sequi cum quaerat nemo blanditiis, ipsum necessitatibus adipisci doloribus nostrum possimus?</p>
+				</div>
+				<div class='menu__group'>
+					<h5> Pancakes </h5>
+					<ul><li>15</li></ul>
+					<p> Lorem, ipsum, dolor sit amet consectetur adipisicing elit. Perspiciatis officia ipsa odio nesciunt alias sequi cum quaerat nemo blanditiis, ipsum necessitatibus adipisci doloribus nostrum possimus?</p>
+				</div>
+				<div class='menu__group'>
+					<h5> French Toast</h5>
+					<ul><li>15</li></ul>
+					<p> Lorem, ipsum, dolor sit amet consectetur adipisicing elit. Perspiciatis officia ipsa odio nesciunt alias sequi cum quaerat nemo blanditiis, ipsum necessitatibus adipisci doloribus nostrum possimus?</p>
+				</div>
+				<div class='menu__group'>
+					<h5> Hamburger & Fries </h5>
+					<ul><li>15</li></ul>
+					<p> Lorem, ipsum, dolor sit amet consectetur adipisicing elit. Perspiciatis officia ipsa odio nesciunt alias sequi cum quaerat nemo blanditiis, ipsum necessitatibus adipisci doloribus nostrum possimus?</p>
+				</div>
+				<div class='menu__group'>
+					<h5> Vegan breakfast option </h5>
+					<ul><li>15</li></ul>
+					<p> Lorem, ipsum, dolor sit amet consectetur adipisicing elit. Perspiciatis officia ipsa odio nesciunt alias sequi cum quaerat nemo blanditiis, ipsum necessitatibus adipisci doloribus nostrum possimus?</p>
+				</div>
+				<div class='menu__footer'>
+					Ask about our events and catering services!
+				</div>
+			</div>
+			<div class='split__menu menu '>
+				<h3>Brunch</h3>
+				<h4>Salads</h4>
+				<div class='menu__group'>
+					<h5> House Salad</h5>
+					<ul><li>9</li></ul>
+					<p> Lorem, ipsum, dolor sit amet consectetur adipisicing elit. Perspiciatis officia ipsa odio nesciunt alias sequi cum quaerat nemo blanditiis, ipsum necessitatibus adipisci doloribus nostrum possimus?</p>
+				</div>
+				<div class='menu__group'>
+					<h5> Super Salad </h5>
+					<ul><li>11</li></ul>
+					<p> Lorem, ipsum, dolor sit amet consectetur adipisicing elit. Perspiciatis officia ipsa odio nesciunt alias sequi cum quaerat nemo blanditiis, ipsum necessitatibus adipisci doloribus nostrum possimus?</p>
+				</div>
+				<div class='menu__group'>
+					<h5> Sally the Salad </h5>
+					<ul><li>10</li></ul>
+					<p> Lorem, ipsum, dolor sit amet consectetur adipisicing elit. Perspiciatis officia ipsa odio nesciunt alias sequi cum quaerat nemo blanditiis, ipsum necessitatibus adipisci doloribus nostrum possimus?</p>
+				</div>
+				<div class='menu__group'>
+					<h5> Salmon Salad</h5>
+					<ul><li>15</li></ul>
+					<p> Lorem, ipsum, dolor sit amet consectetur adipisicing elit. Perspiciatis officia ipsa odio nesciunt alias sequi cum quaerat nemo blanditiis, ipsum necessitatibus adipisci doloribus nostrum possimus?</p>
+				</div>
+				<h4> Sides </h4>
+				<div class='menu__group'>
+					<h5> Homefries </h5>
+					<ul><li>6</li></ul>
+					<p> Lorem, ipsum, dolor sit amet consectetur adipisicing elit. Perspiciatis officia ipsa odio nesciunt alias sequi cum quaerat nemo blanditiis, ipsum necessitatibus adipisci doloribus nostrum possimus?</p>
+				</div>
+				<div class='menu__group'>
+					<h5> Frenchfries</h5>
+					<ul><li>6</li></ul>
+					<p> Lorem, ipsum, dolor sit amet consectetur adipisicing elit. Perspiciatis officia ipsa odio nesciunt alias sequi cum quaerat nemo blanditiis, ipsum necessitatibus adipisci doloribus nostrum possimus?</p>
+				</div>
+				<div class='menu__group'>
+					<h5> Avacado</h5>
+					<ul><li>3</li></ul>
+					<p> Lorem, ipsum, dolor sit amet consectetur adipisicing elit. Perspiciatis officia ipsa odio nesciunt alias sequi cum quaerat nemo blanditiis, ipsum necessitatibus adipisci doloribus nostrum possimus?</p>
+				</div>
+				<div class='menu__group'>
+					<h5> Yogurt Parfait</h5>
+					<ul><li>6</li></ul>
+					<p> Lorem, ipsum, dolor sit amet consectetur adipisicing elit. Perspiciatis officia ipsa odio nesciunt alias sequi cum quaerat nemo blanditiis, ipsum necessitatibus adipisci doloribus nostrum possimus?</p>
+				</div>
+				<div class='menu__footer'>
+					Ask about our events and catering services!
+				</div>
+			</div>
 		</section>
 
 		<section class='followBar'>

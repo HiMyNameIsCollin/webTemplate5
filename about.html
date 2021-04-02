@@ -30,7 +30,7 @@
 		</header>
 
 		<nav class='nav'>
-			<p> <i class="far fa-hand-pointer"></i> Navigation <i class="fas fa-level-down-alt"></i></p>
+			<p class='nav__button'> <i class="far fa-hand-pointer"></i> Navigation <i class="fas fa-level-down-alt"></i></p>
 			<ul>
 				<li class='nav__item '><a href="./">Home</a></li>
 				<li class='nav__item' ><a href="/menu.html">Menu</a></li>
@@ -40,11 +40,18 @@
 		</nav>
 
 		<section class='slideShow'>
+			<ul class='slideShow__menu dropDown'>
+				<li class='dropDown__item'><a href="./">Home</a></li>
+				<li class='dropDown__item' ><a href="/menu.html">Menu</a></li>
+				<li class='dropDown__item--active' ><a href="/about.html">About</a></li>
+				<li class='dropDown__item' ><a href="/contact.html">Contact</a></li>		
+			</ul>
+
 			<article class='slide'>
 				<div class='slide__label'>
 					<h2> Testing testing </h2>
 					<p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat illo expedita, magnam architecto inventore voluptatem sit animi placeat quas soluta, et, laboriosam! Laboriosam velit officiis voluptatibus voluptatum dolore quaerat quasi delectus, ad, ut consequatur vero cum ullam quae. Labore quibusdam saepe, dolore esse. Debitis, illum, vel. Eveniet excepturi, unde totam.</p>
-					<a href="" class='slideShow__btn'> Get in touch </a>
+					<a href="/contact.html"  class='slide__btn'> Get in touch </a>
 				</div>
 				<picture class='slide__image'>
 				    <source srcset="assets/brunch1-lrg.jpg"
@@ -80,7 +87,7 @@
 			</article>
 		</section>
 
-		<section class='blurb '>
+		<section class='blurb' id='about'>
 			<h3>
 				About us
 			</h3>
