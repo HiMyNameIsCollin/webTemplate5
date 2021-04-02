@@ -751,6 +751,12 @@ h3
 	i
 		@include topShadow
 		margin: 0 1rem
+		transition: all .25s ease-in-out
+	@media only screen and (min-width: 1200px)
+		i:hover
+			background: none !important
+			color: $orange
+			transform: scale(1.05)
 
 .footer
 	@include greyOverlay

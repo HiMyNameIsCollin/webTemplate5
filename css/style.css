@@ -1148,6 +1148,14 @@ h3 {
 .followBar i {
   box-shadow: 0px 5px 2.5px 2.5px #040404;
   margin: 0 1rem;
+  transition: all 0.25s ease-in-out;
+}
+@media only screen and (min-width: 1200px) {
+  .followBar i:hover {
+    background: none !important;
+    color: #f2542dff;
+    transform: scale(1.05);
+  }
 }
 
 .footer {
